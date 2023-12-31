@@ -1,14 +1,14 @@
 import {createApp} from 'vue';
 import App from './App.vue';
+
 import router from "@/router/router";
-// import components from '@/components/UI'
+import components from '@/components/UI'
 
 const app = createApp(App);
 
-//global register components
-// components.forEach(component => {
-//     app.component(component.name, component);
-// })
+components.forEach(component => {
+    app.component(component.name, component);
+})
 
 app
     .use(router)

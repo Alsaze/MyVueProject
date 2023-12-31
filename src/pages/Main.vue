@@ -1,15 +1,31 @@
 <template>
   <div>
-    <h1>Hello work</h1>
+    <input
+        v-model="title">
+  </div>
+  <div>
+    {{title}}
   </div>
 </template>
 
 <script>
-export default {
+import MyInput from "@/components/UI/MyInput.vue";
 
+export default {
+  data(){
+    return{
+      title: ''
+    }
+  },
+  methods:{
+    incrementCount(){
+      this.count++;
+    }
+  }
 }
+
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>
