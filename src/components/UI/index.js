@@ -1,4 +1,4 @@
-import MyInput from "@/components/UI/MyInput.vue";
+import AppButton from "@/components/UI/app-button.vue";
 export default [
-    MyInput,
+    AppButton,
 ]

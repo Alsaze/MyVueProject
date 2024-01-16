@@ -1,0 +1,136 @@
+//txt - text
+//
+//l - Large
+//m - medium
+//s - small
+//
+//i - Italic
+//b - Bold
+
+
+//Large
+@mixin txt-l {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+@mixin txt-l-i {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+@mixin txt-l-b {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+
+//Medium
+@mixin txt-m {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin txt-m-i {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin txt-m-b {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+
+//Small
+@mixin txt-s {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+@mixin txt-s-i {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+@mixin txt-s-b {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+
+//BUTTON & LINK
+@mixin btn-link-m {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin btn-link-m-l {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration-style: solid;
+}
+
+
+//FIELDS
+@mixin fld-l {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin fld-s {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}

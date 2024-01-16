@@ -1,0 +1,14 @@
+body {
+  background: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0;
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}

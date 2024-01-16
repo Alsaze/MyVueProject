@@ -1,29 +1,17 @@
 <template>
   <div>
-    <input
-        v-model="title">
-  </div>
-  <div>
-    {{title}}
   </div>
 </template>
 
 <script>
-import MyInput from "@/components/UI/MyInput.vue";
+import SideMenu from "@/components/app-navigation.vue";
 
 export default {
+  components: {SideMenu},
   data(){
-    return{
-      title: ''
-    }
-  },
-  methods:{
-    incrementCount(){
-      this.count++;
-    }
+
   }
 }
-
 </script>
 
 <style>
