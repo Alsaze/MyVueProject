@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="navigation-container">
     <img src="../../public/img/side-menu/MainLogo.svg" alt="" class="logo">
 
     <div class="block">
@@ -61,12 +61,12 @@ export default {
   height: 50px;
 }
 
-.container {
+.navigation-container {
   @include fld-l;
   display: flex;
   flex-direction: column;
 
-  width: 315px;
+  max-width: 315px;
   height: 100vh;
 
   color: white;

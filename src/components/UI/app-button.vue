@@ -1,6 +1,8 @@
 <template>
   <button class="app-button">
-    Sign in
+    <slot>
+
+    </slot>
   </button>
 </template>
 <script>
@@ -12,6 +14,9 @@ export default {
 .app-button {
   min-width: 110px;
   height: 50px;
+
+  //background-color: transparent;
+  //border: solid 1px $clr-red-active;
 
   background-color: $clr-red-active;
   color: white;
