@@ -1,10 +1,10 @@
 <template>
   <header class="app-header">
     <nav class="app-header-left-side">
-      <a href="http://localhost:8080/">Главная</a>
-      <a href="http://localhost:8080/new">Помощь</a>
-      <a href="http://localhost:8080/new">Бонусы</a>
-      <a href="http://localhost:8080/new">Дивизионы</a>
+      <a href="/">Главная</a>
+      <a href="/new">Помощь</a>
+      <a href="/new">Бонусы</a>
+      <a href="/new">Дивизионы</a>
     </nav>
     <div class="app-header-right-side">
       <div v-if="isAuthorization">
@@ -20,18 +20,18 @@
 
       <div v-else>
         <div class="app-header-wallet">
-          <img src="../../public/img/money.svg" alt="#">
+          <img src="/img/money.svg" alt="#">
           3 000 ₽
         </div>
-        <app-button background-color="red" common
-        >
+        <app-button background-color="red" common>
           Кошелек
         </app-button>
-        <app-button class="app-header-wallet-user-logo"
-                    @click="dropListProfileShown = !dropListProfileShown"
+        <app-button
+            class="app-header-wallet-user-logo"
+            @click="dropListProfileShown = !dropListProfileShown"
         >
-          <img src="../../public/img/userface.svg" alt="#">
-          <img src="../../public/img/drop.svg" alt="#">
+          <img src="/img/userface.svg" alt="#">
+          <img src="/img/drop.svg" alt="#">
         </app-button>
       </div>
     </div>
