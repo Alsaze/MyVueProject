@@ -1,22 +1,22 @@
 <template>
   <aside class="navigation-container">
-    <a href="http://localhost:8080/">
-      <img src="../../public/img/side-menu/MainLogo.svg" alt="" class="logo">
+    <a href="http:/localhost:8080/">
+      <img src="/img/side-menu/MainLogo.svg" alt="" class="logo">
     </a>
 
     <div class="block">
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/side-menu/TicketsGame.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/side-menu/TicketsGame.png" alt="">
         Tickets game
       </a>
 
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/side-menu/Games.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/side-menu/Games.png" alt="">
         Games
       </a>
 
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/side-menu/LeaveDealer.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/side-menu/LeaveDealer.png" alt="">
         Live Dealer
       </a>
     </div>
@@ -26,25 +26,25 @@
         SOCIAL CATEGORIES
       </div>
 
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/telegram.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/telegram.png" alt="">
         Telegram
       </a>
 
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/vkontakte.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/vkontakte.png" alt="">
         Вконтакте
       </a>
     </div>
 
     <div class="block">
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/side-menu/notification.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/side-menu/notification.png" alt="">
         Уведомления
       </a>
 
-      <a href="http://localhost:8080/new" class="block-content">
-        <img src="../../public/img/side-menu/noMusic.png" alt="">
+      <a href="http:/localhost:8080/new" class="block-content">
+        <img src="/img/side-menu/noMusic.png" alt="">
         Без звука
       </a>
     </div>
