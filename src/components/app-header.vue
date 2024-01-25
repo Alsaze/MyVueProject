@@ -1,47 +1,70 @@
 <template>
-  <div class="app-header">
-    <div class="left-side">
-      <a href="http://localhost:8080/new">Главная</a>
+  <header class="app-header">
+    <nav class="app-header-left-side">
+      <a href="http://localhost:8080/">Главная</a>
       <a href="http://localhost:8080/new">Помощь</a>
       <a href="http://localhost:8080/new">Бонусы</a>
       <a href="http://localhost:8080/new">Дивизионы</a>
-    </div>
-    <div class="right-side">
-      <div v-if="Math.random() > 0.5">
-        <button class="login-in">
+    </nav>
+    <div class="app-header-right-side">
+      <div v-if="isAuthorization">
+        <app-button common class="app-header-login-in">
           Login in
-        </button>
-        <app-button>
-          <div>
-            Sign in
-          </div>
+        </app-button>
+        <app-button common background-color="red"
+                    @click="authorizationShown = !authorizationShown"
+        >
+          Sign in
         </app-button>
       </div>
 
       <div v-else>
-        <div class="wallet">
+        <div class="app-header-wallet">
           <img src="../../public/img/money.svg" alt="#">
           3 000 ₽
         </div>
-        <app-button>
+        <app-button background-color="red" common
+        >
           Кошелек
         </app-button>
-        <button class="user-logo">
+        <app-button class="app-header-wallet-user-logo"
+                    @click="dropListProfileShown = !dropListProfileShown"
+        >
           <img src="../../public/img/userface.svg" alt="#">
           <img src="../../public/img/drop.svg" alt="#">
-        </button>
+        </app-button>
       </div>
     </div>
-  </div>
+  </header>
+
+  <AppAuthorization
+      v-model="authorizationShown"
+  />
+
+  <AppDropListProfile
+      v-model="dropListProfileShown"
+  />
 </template>
 <script>
-
 import AppButton from "@/components/UI/app-button.vue";
+import appDropListProfile from "@/components/app-drop-list-profile.vue";
+
+import AppAuthorization from "@/components/app-authorization.vue";
+import AppDropListProfile from "@/components/app-drop-list-profile.vue";
 
 export default {
-  components: {AppButton},
+  components: {AppButton, AppDropListProfile, AppAuthorization},
   data() {
-
+    return {
+      authorizationShown: false,
+      dropListProfileShown: false,
+    }
+  },
+  props: {
+    isAuthorization: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
@@ -62,13 +85,10 @@ export default {
 
   justify-content: space-between;
 
-  .left-side {
+  .app-header-left-side {
     display: flex;
     flex-direction: row;
-
-    a:not(:last-child) {
-      margin-right: 25px;
-    }
+    gap: 25px;
 
     a:hover {
       opacity: 0.7;
@@ -76,14 +96,15 @@ export default {
     }
   }
 
-  .right-side > * {
+  .app-header-right-side > * {
     padding-right: 80px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 15px;
 
-    .login-in {
+    .app-header-login-in {
       display: flex;
 
       width: 110px;
@@ -92,30 +113,21 @@ export default {
       justify-content: center;
       text-align: center;
       align-items: center;
-
-      margin-right: 15px;
     }
 
-    .wallet {
+    .app-header-wallet {
       background-color: #57595D;
       display: flex;
+      height: 50px;
 
       padding: 15px;
       align-items: center;
-
-      :first-child {
-        margin-right: 10px;
-        width: 20px;
-        height: 20px;
-      }
+      gap: 10px;
     }
 
-    .user-logo {
+    .app-header-wallet-user-logo {
       margin-left: 15px;
-
-      :first-child {
-        margin-right: 9px;
-      }
+      gap: 10px;
     }
   }
 }

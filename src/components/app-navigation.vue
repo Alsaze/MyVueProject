@@ -1,6 +1,8 @@
 <template>
-  <div class="navigation-container">
-    <img src="../../public/img/side-menu/MainLogo.svg" alt="" class="logo">
+  <aside class="navigation-container">
+    <a href="http://localhost:8080/">
+      <img src="../../public/img/side-menu/MainLogo.svg" alt="" class="logo">
+    </a>
 
     <div class="block">
       <a href="http://localhost:8080/new" class="block-content">
@@ -46,12 +48,12 @@
         Без звука
       </a>
     </div>
-  </div>
+  </aside>
 </template>
 <script>
 export default {
   data() {
-
+    return {}
   }
 }
 </script>

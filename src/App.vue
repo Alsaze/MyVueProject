@@ -1,10 +1,9 @@
 <template>
   <div class="app">
-    <!--    <router-view></router-view>-->
-    <AppNavigation></AppNavigation>
-    <AppHeader></AppHeader>
+    <AppNavigation/>
+    <AppHeader/>
     <main>
-
+      <RouterView/>
     </main>
   </div>
 </template>
@@ -14,11 +13,18 @@ import AppHeader from "@/components/app-header.vue";
 import AppNavigation from "@/components/app-navigation.vue";
 
 export default {
-  components: {AppHeader, AppNavigation}
+  components: {AppHeader, AppNavigation},
+  data() {
+    return {
+      dropListShown: false,
+      accountExitShown: false,
+      authorizationShown: false,
+    }
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -37,16 +43,19 @@ export default {
     / 315px 1fr;
 }
 
-AppHeader {
+header {
   grid-area: head;
 }
 
-AppNavigation {
+aside {
   grid-area: nav;
 }
 
 main {
-  background-color: black;
   grid-area: main;
+
+  background-color: $clr-grey;
+  position: relative;
+  display: flex;
 }
 </style>
