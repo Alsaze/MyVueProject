@@ -1,10 +1,10 @@
 <template>
   <header class="app-header">
     <nav class="app-header-left-side">
-      <a href="/">Главная</a>
-      <a href="/new">Помощь</a>
-      <a href="/new">Бонусы</a>
-      <a href="/new">Дивизионы</a>
+      <router-link to="/">Главная</router-link>
+      <router-link to="/help">Помощь</router-link>
+      <router-link to="/bonus">Бонусы</router-link>
+      <router-link to="/division">Дивизион</router-link>
     </nav>
     <div class="app-header-right-side">
       <div v-if="isAuthorization">
@@ -90,9 +90,28 @@ export default {
     flex-direction: row;
     gap: 25px;
 
-    a:hover {
-      opacity: 0.7;
-      cursor: pointer;
+    > a {
+      height: 50px;
+      line-height: 50px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.router-link-active {
+        color: $clr-red-active;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background-color: $clr-red-active;
+          bottom: 0;
+          left: 0;
+        }
+      }
     }
   }
 

@@ -68,7 +68,6 @@ export default {
 
 <style lang="scss">
 .profile-page {
-  margin-right: 80px;
 
   &__title {
     font-size: 36px;

@@ -1,11 +1,9 @@
 <template>
-  <div class="app">
-    <AppNavigation/>
-    <AppHeader/>
-    <main>
-      <RouterView/>
-    </main>
-  </div>
+  <AppNavigation/>
+  <AppHeader/>
+  <main>
+    <RouterView/>
+  </main>
 </template>
 
 <script>
@@ -33,7 +31,7 @@ export default {
   color: white;
 }
 
-.app {
+#app {
   display: grid;
   width: 100%;
   height: 100vh;
@@ -54,8 +52,10 @@ aside {
 main {
   grid-area: main;
 
+  padding-right: 80px;
   background-color: $clr-grey;
   position: relative;
   display: flex;
+  overflow: auto;
 }
 </style>

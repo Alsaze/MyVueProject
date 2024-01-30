@@ -1,0 +1,96 @@
+//@use '../../styles/variables' as *;
+//@use '../../styles/mixins' as *;
+
+.ui-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ui-accordion-item {
+  $self: &;
+
+  --border-color: var(--accordion-item-border-color);
+  --border-width: 1px;
+
+  outline: var(--border-width) solid var(--border-color);
+  outline-offset: calc(var(--border-width) * -1);
+  border-radius: 12px;
+  background: white;
+  transition: .2s ease-out;
+  transition-property: outline-color, background-color, color;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    --border-width: 2px;
+  }
+
+  &.is-focused {
+    --border-width: 2px;
+  }
+
+  &.is-active {
+    --border-width: 2px;
+    --border-color: grey;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    border: none;
+    padding: var(--accordion-head-padding, 24px);
+    background: transparent;
+    transition: padding .2s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+
+    #{$self}.is-active & {
+      padding: var(--accordion-head-active-padding, 24px 24px 4.5px);
+    }
+
+    #{$self}.is-disabled & {
+      cursor: default;
+    }
+  }
+
+  &__title {
+    color: grey;
+  }
+
+  &__icon {
+    color: grey;
+  }
+
+  &__wrapper {
+    will-change: height;
+    overflow: hidden;
+  }
+
+  &__content {
+    //@include txt-i;
+
+    color: grey;
+    padding: var(--accordion-content-padding, 0 24px 24px);
+  }
+
+  //@include element-variant('accordion-item', '', (
+  //        'border-color': grey,
+  //))
+}
+
+.ui-accordion-transition {
+  transition: .2s height ease-in-out,
+  .2s padding-top ease-in-out,
+  .2s padding-bottom ease-in-out;
+}
+
+.ui-accordion-transition-leave-active,
+.ui-accordion-transition-enter-active {
+  transition: .2s max-height ease-in-out,
+  .2s padding-top ease-in-out,
+  .2s padding-bottom ease-in-out;
+}

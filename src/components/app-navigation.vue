@@ -69,11 +69,12 @@ export default {
   flex-direction: column;
 
   max-width: 315px;
-  height: 100vh;
+  height: 100%;
 
   color: white;
   padding: 40px 0 50px 80px;
   background-color: $clr-grey;
+  overflow: auto;
 }
 
 .block {
@@ -96,7 +97,7 @@ export default {
 
   margin-top: 30px;
 
-    img {
+  img {
     margin-right: 25px;
     height: 20px;
     width: 20px;
