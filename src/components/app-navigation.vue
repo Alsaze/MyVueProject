@@ -1,8 +1,8 @@
 <template>
   <aside class="navigation-container">
-    <a href="http:/localhost:8080/">
+    <router-link to="/">
       <img src="/img/side-menu/MainLogo.svg" alt="" class="logo">
-    </a>
+    </router-link>
 
     <div class="block">
       <a href="http:/localhost:8080/new" class="block-content">

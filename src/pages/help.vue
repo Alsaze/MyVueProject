@@ -12,24 +12,75 @@
         </p>
       </div>
       <div class="help-page__info-container">
-        <block-info
-            slot-one="Понедельник-четверг"
-            sub-slot-one="с 12:00 до 00:00"
-            slot-two="Пятница-воскресенье"
-            sub-slot-two="с 12:00 до 06:00"
-        />
-        <block-info
-            slot-one="Онлайн чат в группе ВКонтакте:"
-            sub-slot-one="15 минут"
-            button="true"
-        />
+        <BlockInfo title="Время работы">
+          <BlockInfoText
+              title="Понедельник-четверг"
+              subtitle="с 12:00 до 00:00"
+          />
+          <BlockInfoText
+              title="Пятница-воскресенье"
+              subtitle="с 12:00 до 06:00"
+          />
+        </BlockInfo>
+        <BlockInfo title="Поддержка клиентов ( Вконтакте )">
+          <BlockInfoText
+              title="Онлайн чат в группе ВКонтакте:"
+              subtitle="15 минут"
+          />
+          <AppButton
+              width="208px"
+              common
+              background-color="red"
+              :append-icon="IconBigArrowRight"
+          >
+            <a href="https://vk.com/id457416627">Перейти в группу</a>
+          </AppButton>
+        </BlockInfo>
       </div>
+
       <ProfileSection title="Ответы на популярные вопросы">
         <div class="help-page__accordion">
           <UiAccordion>
-            <UiAccordionItem title="Item 1">Test 1</UiAccordionItem>
-            <UiAccordionItem title="Item 2">Test 2</UiAccordionItem>
-            <UiAccordionItem title="Item 3">Test 3</UiAccordionItem>
+            <UiAccordionItem :icon="IconArrow" title="Что это за сайт?">Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Ab aut ducimus neque optio velit voluptas! Ea earum eveniet illo itaque iure placeat
+              quaerat repellendus tempore.
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Как здесь играть?"> Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Autem magnam, nam praesentium vel veritatis voluptatibus? Aspernatur, commodi doloremque
+              excepturi id impedit laborum minus molestiae quia!
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Что такое “Промокод”?">Промокод - код, который пользователь может
+              ввести для
+              получения денежного бонуса. Ввести промокод можно в разделе “Бонусы”. Как правило, промокоды публикуются
+              администрацией сайта в официальном Telegram канале - <a href="https://t.me/drgnmoney">https://t.me/drgnmoney</a>
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Как пополнить баланс?">Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. A architecto assumenda consequatur cupiditate delectus, deserunt enim fugit id labore
+              laborum officia perspiciatis recusandae, repudiandae sit!
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Как вывести средства?">Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Cumque delectus dicta fuga nisi porro rem vel. Commodi cum distinctio doloremque est hic
+              molestias nisi praesentium!
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Я вывел деньги, но они не пришли">Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. A aliquam asperiores aspernatur at delectus enim eum facilis, fugit harum
+              illo illum nesciunt possimus, rem sequi!
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Существуют ли на сайте комиссии при пополнении и выводе?">Lorem
+              ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur facere omnis pariatur quae quam quo
+              rerum sunt voluptatem. Dicta facere ipsam ipsum suscipit totam.
+            </UiAccordionItem>
+
+            <UiAccordionItem :icon="IconArrow" title="Что такое “Реферальная система”?">Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Aliquam consequuntur, et eum excepturi iusto libero magni, maxime, optio
+              praesentium rem tempore totam veritatis vitae voluptate.
+            </UiAccordionItem>
           </UiAccordion>
         </div>
       </ProfileSection>
@@ -46,14 +97,23 @@ import AppAccordion from "@/components/UI/app-accordion.vue"
 import IconArrow from "@/components/icons/IconArrow.vue";
 import UiAccordion from "@/components/UI/accordion/index.vue";
 import UiAccordionItem from "@/components/UI/accordion/item.vue";
+import AppButton from "@/components/UI/app-button.vue";
+import BlockInfoText from "@/components/block-info-text.vue";
+import IconBigArrowRight from "@/components/icons/IconBigArrowRight.vue";
 
 export default defineComponent({
   computed: {
+    IconBigArrowRight() {
+      return IconBigArrowRight
+    },
     IconArrow() {
       return IconArrow
     }
   },
-  components: {UiAccordionItem, UiAccordion, AppAccordion, ProfileSection, BlockInfo, IconInformation}
+  components: {
+    BlockInfoText,
+    AppButton, UiAccordionItem, UiAccordion, AppAccordion, ProfileSection, BlockInfo, IconInformation
+  }
 })
 </script>
 <style lang="scss">

@@ -1,37 +1,25 @@
 //@use '../../styles/variables' as *;
-//@use '../../styles/mixins' as *;
+@use '@/assets/variables/colors' as *;
 
 .ui-accordion {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 15px;
 }
 
 .ui-accordion-item {
   $self: &;
 
-  --border-color: var(--accordion-item-border-color);
-  --border-width: 1px;
-
-  outline: var(--border-width) solid var(--border-color);
-  outline-offset: calc(var(--border-width) * -1);
-  border-radius: 12px;
-  background: white;
+  background: #2B2F35;
   transition: .2s ease-out;
-  transition-property: outline-color, background-color, color;
-  -webkit-tap-highlight-color: transparent;
 
-  &:hover {
-    --border-width: 2px;
-  }
+  a {
+    color: $clr-red-active;
+    transition: opacity .2s ease-out;
 
-  &.is-focused {
-    --border-width: 2px;
-  }
-
-  &.is-active {
-    --border-width: 2px;
-    --border-color: grey;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &__head {
@@ -40,16 +28,11 @@
     justify-content: space-between;
     width: 100%;
     text-align: left;
-    border: none;
-    padding: var(--accordion-head-padding, 24px);
-    background: transparent;
+    padding: var(--accordion-head-padding, 20px);
     transition: padding .2s ease-in-out;
     cursor: pointer;
-    outline: none;
-    user-select: none;
 
     #{$self}.is-active & {
-      padding: var(--accordion-head-active-padding, 24px 24px 4.5px);
     }
 
     #{$self}.is-disabled & {
@@ -58,28 +41,28 @@
   }
 
   &__title {
-    color: grey;
+    color: white;
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
   }
 
   &__icon {
-    color: grey;
-  }
-
-  &__wrapper {
-    will-change: height;
-    overflow: hidden;
+    transition: transform .2s ease-out;
+    
+    #{$self}.is-active & {
+      transform: rotateZ(180deg);
+    }
   }
 
   &__content {
-    //@include txt-i;
-
-    color: grey;
-    padding: var(--accordion-content-padding, 0 24px 24px);
+    color: white;
+    padding: var(--accordion-content-padding, 10px 20px 20px);
   }
-
-  //@include element-variant('accordion-item', '', (
-  //        'border-color': grey,
-  //))
 }
 
 .ui-accordion-transition {

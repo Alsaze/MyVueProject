@@ -2,6 +2,8 @@ import {createRouter, createWebHistory} from "vue-router";
 import Main from "@/pages/main.vue";
 import Profile from "@/pages/profile.vue";
 import Help from "@/pages/help.vue";
+import Bonus from "@/pages/bonus.vue";
+import Divisions from "@/pages/divisions.vue";
 
 const routes = [
     {
@@ -11,6 +13,14 @@ const routes = [
     {
         path: '/help',
         component: Help
+    },
+    {
+        path: '/bonus',
+        component: Bonus
+    },
+    {
+        path: '/divisions',
+        component: Divisions
     },
     {
         path: '/profile',

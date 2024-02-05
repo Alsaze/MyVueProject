@@ -1,43 +1,8 @@
 <template>
   <div class="block-info">
-    <h4>Время работы</h4>
+    <h4>{{ title }}</h4>
     <div class="block-info__content">
-      <div class="block-info__text">
-        <span>
-          <IconReverseClock/>
-        </span>
-        <div class="block-info__container">
-          <div class="block-info__title">
-            {{ slotOne }}
-          </div>
-          <div class="block-info__subtitle">
-            {{ subSlotOne }}
-          </div>
-        </div>
-      </div>
-
-      <div v-if="!button" class="block-info__text">
-        <span>
-          <IconReverseClock/>
-        </span>
-        <div class="block-info__container">
-          <div class="block-info__title">
-            {{ slotTwo }}
-          </div>
-          <div class="block-info__subtitle">
-            {{ subSlotTwo }}
-          </div>
-        </div>
-      </div>
-      <div class="block-info__button" v-else>
-        <AppButton
-            background-color="red"
-            :append-icon="IconBigArrowRight"
-            width="208px"
-        >
-          Перейти в группу
-        </AppButton>
-      </div>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -45,29 +10,21 @@
 import IconReverseClock from "@/components/icons/IconReverseClock.vue";
 import AppButton from "@/components/UI/app-button.vue";
 import IconBigArrowRight from "@/components/icons/IconBigArrowRight.vue";
+import BlockInfoText from "@/components/block-info-text.vue";
 
 export default {
   name: 'block-info',
-  computed: {
-    IconBigArrowRight() {
-      return IconBigArrowRight
-    }
-  },
-  components: {AppButton, IconReverseClock},
+  components: {BlockInfoText, AppButton, IconReverseClock},
   props: {
-    button: {
-      Boolean,
-      default: false
-    },
-    slotOne: {},
-    subSlotOne: {},
-    slotTwo: {},
-    subSlotTwo: {}
+    title: {}
   }
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .block-info {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   max-width: 690px;
   padding: 25px;
@@ -83,26 +40,9 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 
-  }
-
-  &__text {
-    display: flex;
-    flex-direction: row;
-
-    span {
-      margin-right: 15px;
-    }
-  }
-
-  &__title {
-    color: $clr-alt-text;
-    @include txt-l;
-    margin-bottom: 4px;
-  }
-
-  &__subtitle {
-    @include txt-l-b;
   }
 
   &__button {

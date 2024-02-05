@@ -20,11 +20,10 @@
           {{ title }}
         </h3>
       </slot>
-      <!--      <Component-->
-      <!--          :is="resolveComponent(`ui-icon-${isActive ? activeIcon : inactiveIcon}`)"-->
-      <!--          v-if="!disabled"-->
-      <!--          :class="cn.e('icon')"-->
-      <!--      />-->
+      <Component
+          class="ui-accordion-item__icon"
+          :is="icon"
+      />
     </button>
 
     <UiAccordionTransition>
@@ -55,6 +54,7 @@ const props = defineProps({
     default: () => uniqueId()
   },
   title: '',
+  icon: {},
 })
 
 const accordion = inject('UI_ACCORDION')

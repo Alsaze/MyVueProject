@@ -1,6 +1,6 @@
 <template>
   <button
-      :class="['btn',{'btn_common': common},{'btn_outside': outside},{'btn_icon':icon},{'btn_prependIcon':prependIcon},{'btn_appendIcon':appendIcon}]"
+      :class="['btn',{'btn_common': common},{'btn_outside': outside},{'btn_icon':icon},{'btn_prependIcon':prependIcon},{'btn_appendIcon':appendIcon},{'btn_big':big},{'btn_medium':medium}]"
       :style="{color: color, background: backgroundColor, width: width, height: height}"
   >
     <slot v-if="prependIcon" name="prependIcon">
@@ -42,6 +42,14 @@ export default {
     icon: {},
     prependIcon: {},
     appendIcon: {},
+    big: {
+      type: Boolean,
+      default: false
+    },
+    medium: {
+      type: Boolean,
+      default: false
+    },
   },
   name: 'app-button',
   data() {
@@ -83,6 +91,14 @@ export default {
   &_appendIcon {
     padding: 10px;
     gap: 10px;
+  }
+
+  &_big {
+    padding: 15px;
+  }
+
+  &_medium {
+    padding: 10px;
   }
 }
 </style>

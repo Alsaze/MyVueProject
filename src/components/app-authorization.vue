@@ -5,25 +5,40 @@
         <h6>
           Авторизация
         </h6>
-        <app-button :icon="IconCross"
-                    @click="$emit('update:modelValue', false)"
+        <AppButton
+            :icon="IconCross"
+            @click="$emit('update:modelValue', false)"
         >
-        </app-button>
+        </AppButton>
       </div>
-      <div>
-        Вы можете авторизоваться через представленные соц.сети
-      </div>
+      <div>Вы можете авторизоваться через представленные соц.сети</div>
       <div class="AppAuthorization-container-top-buttons">
-        <app-button :append-icon="IconVk" background-color="#5865f2" width="150px">
+        <AppButton
+            :append-icon="IconVk"
+            background-color="#5865f2"
+            width="150px"
+            @click=authorization
+        >
           Вконтакте
-        </app-button>
-        <app-button :prepend-icon="IconGoogle" background-color="#fff" color="black" width="150px">
+        </AppButton>
+        <AppButton
+            :prepend-icon="IconGoogle"
+            background-color="#fff"
+            color="black"
+            width="150px"
+            @click=authorization
+        >
           Google
-        </app-button>
+        </AppButton>
       </div>
-      <app-button :prepend-icon="IconYandex" background-color="red" width="150px">
+      <AppButton
+          :prepend-icon="IconYandex"
+          background-color="red"
+          width="150px"
+          @click=authorization
+      >
         Яндекс
-      </app-button>
+      </AppButton>
     </div>
   </Teleport>
 </template>
@@ -47,8 +62,15 @@ export default {
   props: {
     modelValue: {
       type: Boolean,
+      default: false
     }
   },
+  methods: {
+    authorization() {
+      this.$store.commit('setIsAuthorization', true);
+      this.$emit('update:modelValue', false);
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

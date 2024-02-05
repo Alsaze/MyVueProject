@@ -4,35 +4,43 @@
       <router-link to="/">Главная</router-link>
       <router-link to="/help">Помощь</router-link>
       <router-link to="/bonus">Бонусы</router-link>
-      <router-link to="/division">Дивизион</router-link>
+      <router-link to="/divisions">Дивизион</router-link>
     </nav>
     <div class="app-header-right-side">
-      <div v-if="isAuthorization">
-        <app-button common class="app-header-login-in">
-          Login in
-        </app-button>
-        <app-button common background-color="red"
-                    @click="authorizationShown = !authorizationShown"
-        >
-          Sign in
-        </app-button>
-      </div>
-
-      <div v-else>
+      <div v-if="$store.state.authorization.isAuthorization">
         <div class="app-header-wallet">
           <img src="/img/money.svg" alt="#">
           3 000 ₽
         </div>
-        <app-button background-color="red" common>
+        <AppButton
+            background-color="red"
+            common
+        >
           Кошелек
-        </app-button>
-        <app-button
+        </AppButton>
+        <AppButton
             class="app-header-wallet-user-logo"
             @click="dropListProfileShown = !dropListProfileShown"
         >
           <img src="/img/userface.svg" alt="#">
           <img src="/img/drop.svg" alt="#">
-        </app-button>
+        </AppButton>
+      </div>
+
+      <div v-else>
+        <AppButton
+            common
+            class="app-header-login-in"
+        >
+          Login in
+        </AppButton>
+        <AppButton
+            common
+            background-color="red"
+            @click="authorizationShown = !authorizationShown"
+        >
+          Sign in
+        </AppButton>
       </div>
     </div>
   </header>
@@ -60,12 +68,6 @@ export default {
       dropListProfileShown: false,
     }
   },
-  props: {
-    isAuthorization: {
-      type: Boolean,
-      default: false
-    }
-  }
 }
 </script>
 

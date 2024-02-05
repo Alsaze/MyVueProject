@@ -3,29 +3,32 @@
     <div class="app-account-exit" v-if="modelValue">
       <div class="app-account-exit-header">
         <h6>Выход из аккаунта</h6>
-        <app-button
+        <AppButton
             @click="$emit('update:modelValue', false)"
             :icon="IconCross"
-        >
-        </app-button>
+        />
       </div>
 
       <div>Вы уверены что хотите выйти из аккаунта?</div>
 
       <div class="app-account-exit-choice">
-        <app-button outside common
-                    @click="$emit('update:modelValue', false)"
+        <AppButton
+            outside
+            common
+            @click="$emit('update:modelValue', false)"
         >
           Отмена
-        </app-button>
-        <app-button background-color="red" common>
+        </AppButton>
+        <AppButton
+            background-color="red"
+            common
+            @click=exitAccount
+        >
           Выйти
-        </app-button>
+        </AppButton>
       </div>
 
-      <div>
-        Правила сайта запрещают регистрировать более одной учетной записи.
-      </div>
+      <div>Правила сайта запрещают регистрировать более одной учетной записи.</div>
 
       <div class="app-account-exit-text">
         В случае несоблюдения правил - <span>блокировка <br>
@@ -41,6 +44,7 @@
 <script>
 import AppButton from "@/components/UI/app-button.vue";
 import IconCross from "@/components/icons/IconCross.vue";
+import router from "@/router/router";
 
 export default {
   components: {AppButton, IconCross},
@@ -53,6 +57,14 @@ export default {
     modelValue: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    exitAccount() {
+      this.$store.commit('setIsAuthorization', false);
+      this.$emit('update:modelValue', false);
+
+      router.push('/');
     }
   }
 }

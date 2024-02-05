@@ -5,7 +5,11 @@
     <div class="profile-page__content">
       <ProfileSection title="Профиль">
         <template #header>
-          Выйти
+          <AppButton
+              @click=exitAccount
+          >
+            Выйти
+          </AppButton>
         </template>
 
         <div class="profile-card">
@@ -52,6 +56,8 @@
         </div>
       </ProfileSection>
     </div>
+    <AppAccountExit
+        v-model="accountExitShown"/>
   </div>
 </template>
 
@@ -60,9 +66,20 @@ import ProfileSection from "@/components/profile-section.vue";
 import AppButton from "@/components/UI/app-button.vue";
 import IconCopy from "@/components/icons/IconCopy.vue";
 import DivisionCard from "@/components/division-card.vue";
+import AppAccountExit from "@/components/app-account-exit.vue";
 
 export default {
-  components: {DivisionCard, IconCopy, AppButton, ProfileSection}
+  components: {AppAccountExit, DivisionCard, IconCopy, AppButton, ProfileSection},
+  data() {
+    return {
+      accountExitShown: false,
+    }
+  },
+  methods: {
+    exitAccount() {
+      this.accountExitShown = true
+    }
+  }
 }
 </script>
 

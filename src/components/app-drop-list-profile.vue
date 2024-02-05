@@ -5,20 +5,20 @@
         Player50339
       </div>
       <div>
-        <app-button :append-icon="IconBigArrowRight" background-color="red">
-          <a href="http://localhost:8080/profile">В личный кабинет</a>
-        </app-button>
-      </div>
-      <div class="app-drop-list-profile-underline">
-      </div>
-      <div class="app-drop-list-profile-footer">
-        <app-button :icon="IconDynamicMute">
-
-        </app-button>
-        <app-button :icon="IconExitDoor"
-                    @click="accountExitShown=true"
+        <AppButton
+            :append-icon="IconBigArrowRight"
+            background-color="red"
         >
-        </app-button>
+          <a href="http://localhost:8080/profile">В личный кабинет</a>
+        </AppButton>
+      </div>
+      <div class="app-drop-list-profile-underline"></div>
+      <div class="app-drop-list-profile-footer">
+        <AppButton :icon="IconDynamicMute"/>
+        <AppButton
+            :icon="IconExitDoor"
+            @click=exitAccount
+        />
       </div>
     </div>
 
@@ -27,6 +27,7 @@
     />
   </teleport>
 </template>
+
 <script>
 import AppButton from "@/components/UI/app-button.vue";
 import IconBigArrowRight from "@/components/icons/IconBigArrowRight.vue";
@@ -55,6 +56,12 @@ export default {
   props: {
     modelValue: {
       type: Boolean,
+    }
+  },
+  methods: {
+    exitAccount() {
+      this.accountExitShown = true
+      this.$emit('update:modelValue', false)
     }
   }
 }
