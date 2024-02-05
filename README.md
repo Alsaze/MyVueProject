@@ -1,3 +1,5 @@
+My first vue project and understanding why we need frameworks and how it works
+
 # first-project-vue
 
 ## Project setup
