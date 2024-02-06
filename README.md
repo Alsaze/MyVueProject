@@ -1,3 +1,7 @@
+My first vue project and understanding why we need frameworks and how it works
+
+https://incomparable-cactus-c58382.netlify.app/
+
 # first-project-vue
 
 ## Project setup
