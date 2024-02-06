@@ -6,7 +6,7 @@
       <ProfileSection title="Профиль">
         <template #header>
           <AppButton
-              @click=exitAccount
+              @click=appAccountExit
           >
             Выйти
           </AppButton>
@@ -67,17 +67,13 @@ import AppButton from "@/components/UI/app-button.vue";
 import IconCopy from "@/components/icons/IconCopy.vue";
 import DivisionCard from "@/components/division-card.vue";
 import AppAccountExit from "@/components/app-account-exit.vue";
+import appAccountExit from "@/components/app-account-exit.vue";
 
 export default {
   components: {AppAccountExit, DivisionCard, IconCopy, AppButton, ProfileSection},
-  data() {
-    return {
-      accountExitShown: false,
-    }
-  },
   methods: {
-    exitAccount() {
-      this.accountExitShown = true
+    appAccountExit() {
+      this.$store.commit('setIsAccountExitShown', true);
     }
   }
 }

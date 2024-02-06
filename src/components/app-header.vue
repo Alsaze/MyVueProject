@@ -55,7 +55,6 @@
 </template>
 <script>
 import AppButton from "@/components/UI/app-button.vue";
-import appDropListProfile from "@/components/app-drop-list-profile.vue";
 
 import AppAuthorization from "@/components/app-authorization.vue";
 import AppDropListProfile from "@/components/app-drop-list-profile.vue";

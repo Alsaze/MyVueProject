@@ -1,10 +1,10 @@
 <template>
   <teleport to="body">
-    <div class="app-account-exit" v-if="modelValue">
+    <div class="app-account-exit" v-if="$store.state.authorization.isAccountExitShown">
       <div class="app-account-exit-header">
         <h6>Выход из аккаунта</h6>
         <AppButton
-            @click="$emit('update:modelValue', false)"
+            @click="$store.commit('setIsAccountExitShown', false)"
             :icon="IconCross"
         />
       </div>
@@ -15,7 +15,7 @@
         <AppButton
             outside
             common
-            @click="$emit('update:modelValue', false)"
+            @click="$store.commit('setIsAccountExitShown', false)"
         >
           Отмена
         </AppButton>
@@ -62,7 +62,7 @@ export default {
   methods: {
     exitAccount() {
       this.$store.commit('setIsAuthorization', false);
-      this.$emit('update:modelValue', false);
+      this.$store.commit('setIsAccountExitShown', false);
 
       router.push('/');
     }
@@ -83,6 +83,8 @@ export default {
   padding: 20px;
   background-color: $clr-bg-2;
   text-align: center;
+
+  border: 1px solid $clr-red-active;
 
   div {
     @include txt-m;

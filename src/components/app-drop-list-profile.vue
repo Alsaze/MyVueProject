@@ -8,8 +8,11 @@
         <AppButton
             :append-icon="IconBigArrowRight"
             background-color="red"
+            @click="this.$emit('update:modelValue', false)"
         >
-          <a href="http://localhost:8080/profile">В личный кабинет</a>
+          <router-link to="/profile">
+            В личный кабинет
+          </router-link>
         </AppButton>
       </div>
       <div class="app-drop-list-profile-underline"></div>
@@ -48,11 +51,6 @@ export default {
     }
   },
   components: {AppAccountExit, AppButton},
-  data() {
-    return {
-      accountExitShown: false,
-    }
-  },
   props: {
     modelValue: {
       type: Boolean,
@@ -60,8 +58,8 @@ export default {
   },
   methods: {
     exitAccount() {
-      this.accountExitShown = true
-      this.$emit('update:modelValue', false)
+      this.$store.commit('setIsAccountExitShown', true);
+      this.$emit('update:modelValue', false);
     }
   }
 }
